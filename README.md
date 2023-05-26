@@ -16,101 +16,86 @@
 13. Get all comments on a post
 
 ## API endpoints
+
+
+```js
+
 Registration
 
-```js
-{
 1. `POST /api/registration`: Register new user
-}
-```
 
 Login
-```js
-{
+
 1. `POST /api/login`: Logs in a user
-}
-```
 
 Users
-```js
-{
+
 1. `POST /api/users`: Create  new user
 2. `GET /api/users/1`: Get user by id
 3. `PUT /api/users/1`: Update user by id
 4. `DELETE /api/users/1`: Delete user by id
-}
-```
 
 Posts
-```js
-{
+
 1. `POST /api/posts`: Create new post with reference to `user_id`
 2. `GET /api/posts/1`: Get post by id
 3. `GET /api/posts`: Get all post including user.name and user.email
 4. `PUT /api/posts/1`: Update post by id
 5. `DELETE /api/posts/1`: Delete post by id
-}
-```
 
 Comments
-```js
-{
+
 1. `POST /api/comments/1`: Create new comment on a post reference with `post_id` and `user_id`
 2. `GET /api/comments/1`: Get all comments on a post including user.name and user.email
-}
+
+
 ```
 
- 
 
 ## Body Payload
 
-Registration expects
+
 
 ```js
+
+Registration expects
+
 {
     email: string,
     password: string,
 }
-```
 
 Login expects
 
-```js
 {
     email: string,
     password: string,
 }
-```
-
 
 User expects
 
-```js
 {
     name: string,
     email: string,
     password: string,
 }
-```
 
 Posts expects
 
-```js
 {
     title: string,
     content: string,
     tags: string array comma seperated
 }
-```
 
 Comments expects
 
-```js
 { 
     content: string
 }
-```
 
+
+```
 
 ## Tools
 * NodeJS/Express: Server
@@ -145,6 +130,13 @@ Install the required dependencies with
 yarn install
 ```
 
+Create DB and run migrations
+
+```sh
+npx sequelize-cli db:create
+sequelize db:migrate
+```
+
 Start the app with
 
 ```sh
@@ -155,11 +147,4 @@ You can also start it in watch mode with
 
 ```sh
 npm run start:dev
-```
-
-Create DB and run migrations
-
-```sh
-npx sequelize-cli db:create
-sequelize db:migrate
 ```
