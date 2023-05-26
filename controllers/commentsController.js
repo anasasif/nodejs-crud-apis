@@ -40,6 +40,7 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     const { count, rows } = await Comment.findAndCountAll({
+      where: { post_id: req.params.id },
       limit: req.limit,
       offset: req.offset,
       order: [['id', 'DESC']],
