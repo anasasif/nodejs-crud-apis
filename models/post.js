@@ -10,10 +10,22 @@ module.exports = (sequelize, DataTypes) => {
 
   };
   Post.init({
-    title: DataTypes.STRING,
-    content: DataTypes.STRING,
-    author: DataTypes.INTEGER,
-    tags: DataTypes.STRING
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    content: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    author: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    tags: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'Post',

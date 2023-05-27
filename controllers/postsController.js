@@ -92,7 +92,7 @@ async function index(req, res) {
     const { count, rows } = await Post.findAndCountAll({
       where: {
         [Op.or]: [
-          { 'tags': { [Op.like]: req.query.search ? `%${req.query.search}%` : `%%` } }
+          { 'tags': { [Op.regexp]: req.query.search ? req.query.search : `` } }
         ]
       },
       limit: req.limit,

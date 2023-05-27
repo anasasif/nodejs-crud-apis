@@ -8,10 +8,10 @@ const { Op } = require("sequelize");
 async function create(req, res) {
   try {
 
-    const { name, email, password } = req.body
+    const { name, email, password, role } = req.body
     const encryptedPassword = await bcrypt.hash(password, 10);
 
-    const userData = { name: name, email: email, password: encryptedPassword }
+    const userData = { name: name, email: email, password: encryptedPassword, role: role }
 
     const finduser = await User.findOne({ where: { email: email } })
 
@@ -53,10 +53,10 @@ async function show(req, res) {
 async function update(req, res) {
   try {
 
-    const { name, email, password } = req.body
+    const { name, email, password, role } = req.body
     const encryptedPassword = await bcrypt.hash(password, 10);
 
-    const updateData = { name: name, email: email, password: encryptedPassword }
+    const updateData = { name: name, email: email, password: encryptedPassword, role: role }
 
       const userUpdate = await User.update(updateData, { where: { id: req.params.id } })
       if (userUpdate[0] === 1) {

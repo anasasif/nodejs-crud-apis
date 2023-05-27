@@ -30,12 +30,6 @@ async function create(req, res) {
   }
 }
 
-
-
-
-
-
-
 // getting all posts
 async function index(req, res) {
   try {

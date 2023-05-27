@@ -30,12 +30,16 @@ Login
 
 Users
 
+these endpoints are secured by requiring a valid JWT token
+
 1. `POST /api/users`: Create  new user
 2. `GET /api/users/1`: Get user by id
 3. `PUT /api/users/1`: Update user by id
 4. `DELETE /api/users/1`: Delete user by id
 
 Posts
+
+these endpoints are secured by requiring a valid JWT token and user role-based access
 
 1. `POST /api/posts`: Create new post with reference to `user_id`
 2. `GET /api/posts/1`: Get post by id
@@ -45,15 +49,15 @@ Posts
 
 Comments
 
+these endpoints are secured by requiring a valid JWT token
+
 1. `POST /api/comments/1`: Create new comment on a post reference with `post_id` and `user_id`
 2. `GET /api/comments/1`: Get all comments on a post including user.name and user.email
 
 
 ```
 
-
 ## Body Payload
-
 
 
 ```js
@@ -63,6 +67,7 @@ Registration expects
 {
     email: string,
     password: string,
+    role: array of string
 }
 
 Login expects
@@ -78,6 +83,7 @@ User expects
     name: string,
     email: string,
     password: string,
+    role: array of string,
 }
 
 Posts expects
@@ -85,7 +91,7 @@ Posts expects
 {
     title: string,
     content: string,
-    tags: string array comma seperated
+    tags: array of string,
 }
 
 Comments expects

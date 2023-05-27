@@ -15,7 +15,9 @@ async function login(req, res) {
         if (result) {
           const token = jwt.sign(
             {
-              email: finduser.email, id: finduser.id
+              email: finduser.email,
+              id: finduser.id,
+              role: finduser.role
             },
             privateKey, { issuer: 'innovation', expiresIn: '1h', algorithm: "RS256" }
           );

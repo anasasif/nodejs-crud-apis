@@ -3,7 +3,8 @@ const { sequelize } = require('./models');
 const app = express();
 const cors = require('cors');
 const paginate = require('./helper/paginate');
-const { isUserValid, isTokenValid } = require('./middleware/verify');
+const { isTokenValid } = require('./middleware/verify');
+
 require('dotenv').config();
 
 const PORT = process.env.LOCALHOST_PORT || process.env.PRODUCTION_PORT;

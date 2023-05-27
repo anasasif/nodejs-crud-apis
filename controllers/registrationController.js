@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 async function create(req, res) {
   try {
 
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
     const encryptedPassword = await bcrypt.hash(password, 10);
-    const payLaod = { email: email, password: encryptedPassword };
+    const payLaod = { email: email, password: encryptedPassword, role: role };
 
     const finduser = await User.findOne({ where: { email: req.body.email } })
     if (finduser) {
