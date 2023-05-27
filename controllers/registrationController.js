@@ -12,7 +12,7 @@ async function create(req, res) {
 
     const finduser = await User.findOne({ where: { email: req.body.email } })
     if (finduser) {
-      return res.status(409).json({ message: 'Email already exist!' });
+      return res.status(409).json({ error: 'Email already exist!' });
     } else {
       await User.create(payLaod).then(data => {
         return res.status(201).json({
